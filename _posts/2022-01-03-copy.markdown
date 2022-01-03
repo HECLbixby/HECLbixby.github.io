@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Style Guide2222
+title: CNN in Pytorch
 image: 8.jpg
-date: 2018-03-02 13:35:20 +0200
+date: 2021-01-05 13:35:20 +0200
 tags:
-categories: guide
+categories: ML
 ---
 A paragraph looks like this — dolor amet cray stumptown fingerstache neutra food truck seitan poke cardigan waistcoat VHS snackwave celiac hella. Godard seitan shoreditch flexitarian next level trust fund man braid vegan listicle keytar bitters. Disrupt cray fashion axe unicorn lomo shaman poke glossier keffiyeh snackwave austin tattooed seitan hexagon lo-fi. Lumbersexual irony vaporware, butcher shaman church-key iceland.
 
@@ -76,6 +76,55 @@ A paragraph looks like this — dolor amet cray stumptown fingerstache neutra fo
       $('.top').removeClass("top-active");
     };
   });
+{% endhighlight %}
+
+***
+
+#### Final Code
+
+{% highlight js %}
+import numpy as np
+from skimage import io
+import matplotlib.pyplot as plt
+import matplotlib
+import pandas as pd
+import cv2
+import sys
+import random
+from PIL import Image
+from matplotlib import cm
+import os
+import time
+import copy
+os.environ['CUDA_LAUNCH_BLOCKING'] = "1"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+
+import torch, gc
+gc.collect()
+torch.cuda.empty_cache()
+import torch.nn as nn
+import torch.cuda as cutorch
+from torchvision import transforms, datasets
+from torchvision.datasets import ImageFolder
+import torch.utils.data as data
+import torchvision.transforms as T
+from IPython.display import HTML, display
+
+
+import pickle as pkl
+import keras
+from tensorflow.keras.models import Sequential, Model, load_model
+from tensorflow.keras.layers import LSTM, Dense, RepeatVector, TimeDistributed, Input, BatchNormalization, multiply, concatenate, Flatten, Activation, dot  
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.utils import plot_model
+from tensorflow.keras.callbacks import EarlyStopping
+import pydot as pyd
+from keras.utils.vis_utils import plot_model, model_to_dot
+
+from sklearn.preprocessing import MinMaxScaler
+
+# Warning comments X
+pd.options.mode.chained_assignment = None
 {% endhighlight %}
 
 ***
