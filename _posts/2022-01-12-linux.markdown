@@ -40,7 +40,7 @@ https://developer.nvidia.com/cuda-toolkit-archive
 그 뒤에 window/linux 각각의 운영체제 별로 깔 수 있는 방식이 나오는데 아래와 같은 명령어로 version을 확인해준뒤 알맞게 클릭합니다.
 
 {% highlight js %}
-hostnamectl
+$ hostnamectl
 {% endhighlight %}
 
 
@@ -87,7 +87,18 @@ $ wget https://developer.download.nvidia.com/compute/cuda/11.0.3/local_installer
 먼저 가상환경을 생성하는 과정은 다음과 같습니다.
 
 my_env_name : 가상환경 이름
-Architecture
+
+
+{% highlight js %}
+$ conda create -n my_env_name
+{% endhighlight %}
+
+
+python버전을 지정해주고 싶다면
+{% highlight js %}
+$ conda create -n my_env_name python=3.5.6
+{% endhighlight %}
+
 
 
 중간에 Proceed ([y]/n)? 라는 문구가 나오면 y를 눌러서 진행합니다.
@@ -99,7 +110,7 @@ Architecture
 가상환경을 삭제하는 방법은 다음과 같습니다.
 
 {% highlight js %}
-conda remove --name my_env_name --all
+$ conda remove --name my_env_name --all
 {% endhighlight %}
 
 
@@ -112,7 +123,7 @@ conda remove --name my_env_name --all
 지금까지 만든 가상환경들이 잘 생성되었거나 기존 가상환경들을 보려면 다음의 명령어를 입력하시면 됩니다.
 
 {% highlight js %}
-conda info --envs
+$ conda info --envs
 {% endhighlight %}
 
 
@@ -122,7 +133,7 @@ conda info --envs
 만든 가상환경을 들어가는 방법은 다음과 같습니다.
 
 {% highlight js %}
-conda activate my_env_name
+$ conda activate my_env_name
 {% endhighlight %}
 
 
@@ -136,6 +147,6 @@ conda activate my_env_name
 가상환경에서 나오는 명령어는 다음과 같습니다.
 
 {% highlight js %}
-conda deactivate
+$ conda deactivate
 {% endhighlight %}
 
