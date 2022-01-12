@@ -31,7 +31,7 @@ __결과창__
 
 
 
-아래의 링크로 가서 맞는 cuda의 version 게시물을 찾아갑니다.
+아래의 링크로 가서 맞는 cuda의 version 게시물을 찾아갑니다. 저의 경우에는 저 초록 형광펜으로 표시한 11.0이겠네요.
 
 
 https://developer.nvidia.com/cuda-toolkit-archive
