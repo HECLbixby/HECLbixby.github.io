@@ -8,11 +8,101 @@ categories: Linux
 ---
 This is kind a archive when I do my Machine Learning things in Linux. I do Linux by MobaXterm.
 
+
+***
+
+
+## Python(Anaconda) - Virtual Environment (vir-env)
+
+
+#### 1. Create vir-env
+
+먼저 가상환경을 생성하는 과정은 다음과 같습니다.
+
+my_env_name : 가상환경 이름
+
+
+{% highlight js %}
+$ conda create -n my_env_name
+{% endhighlight %}
+
+
+python버전을 지정해주고 싶다면
+{% highlight js %}
+$ conda create -n my_env_name python=3.8
+{% endhighlight %}
+
+
+
+중간에 Proceed ([y]/n)? 라는 문구가 나오면 y를 눌러서 진행합니다.
+
+
+
+#### 2. Remove vir-env
+
+가상환경을 삭제하는 방법은 다음과 같습니다.
+
+{% highlight js %}
+$ conda remove --name my_env_name --all
+{% endhighlight %}
+
+
+앞서 python버전을 명시해 두었다면 my_env_namepython=3.5.6 까지 작성합니다.
+
+
+
+#### 3. Check vir-env infomation
+
+지금까지 만든 가상환경들이 잘 생성되었거나 기존 가상환경들을 보려면 다음의 명령어를 입력하시면 됩니다.
+
+{% highlight js %}
+$ conda info --envs
+{% endhighlight %}
+
+
+
+#### 4. Activate vir-env
+
+만든 가상환경을 들어가는 방법은 다음과 같습니다.
+
+{% highlight js %}
+$ conda activate my_env_name
+{% endhighlight %}
+
+
+
+그러면 prompt 앞에 (my_env_name)이 표시가 됩니다.
+
+
+
+#### 5. Deactivate vir-env
+
+가상환경에서 나오는 명령어는 다음과 같습니다.
+
+{% highlight js %}
+$ conda deactivate
+{% endhighlight %}
+
+
 ***
 
 ## GPU
 
 #### To use GPU
+
+
+##### 0. 본인에게 맞는 version 확인
+
+
+https://www.tensorflow.org/install/source#tested_build_configurations 에 들어가셔서 본인에게 맞는 버젼을 체크하세요.
+
+tensorflow, python, cuDNN, CUDA 버전이 맞아야 GPU를 사용하실 수 있습니다.
+
+
+![]({{site.baseurl}}/images/cuda3.png)
+
+(가상환경을 쓰실 분들은 저의 경우 gpu해당 version이 CUDA 11.0으로 되어있어서 앞서 가상환경을 깔때, python=3.8로 설치하였습니다.)
+
 
 
 ##### 1. CUDA Toolkit 다운로드
@@ -69,6 +159,63 @@ __결과창__
 $ wget https://developer.download.nvidia.com/compute/cuda/11.0.3/local_installers/cuda_11.0.3_450.51.06_linux.run
 {% endhighlight %}
 
+
+
+
+##### 2. cuDNN 설치
+
+
+https://developer.nvidia.com/rdp/cudnn-archive 에서 앞서 본인의 CUDA version에 맞는 cuDNN의 version을 클릭해 파일을 다운받아 리눅스로 옮겨줍니다.
+
+
+![]({{site.baseurl}}/images/cuda4.png)
+
+
+그리고 그 directory로 가서 아래 명령어를 실행합니다.
+{% highlight js %}
+$ tar -xvf cudnn-11.0-linux-x64-v8.0.5.39.tgz
+{% endhighlight %}
+
+
+
+##### 3. tensorflow 설치
+
+
+본인에게 맞는 tensorflow를 version을 지정하여 설치해줍니다.
+{% highlight js %}
+pip install tensorflow==2.4.0
+{% endhighlight %}
+
+
+
+
+##### 4. jupyter 설치
+
+
+저의 경우에는 jupyter notebook에서 작업하는 것이 편하므로 jupyter를 설치해줍니다.
+{% highlight js %}
+pip install jupyter
+{% endhighlight %}
+
+
+
+
+##### 5. jupyter notebook에서 GPU 인식 확인
+
+
+{% highlight js %}
+import tensorflow as tf
+tf.__version__
+from tensorflow.python.client import device_lib
+device_lib.list_local_devices()
+{% endhighlight %}
+
+
+본인이 설치한 tensorflow의 version이 맞는지 확인하고 device에 gpu:0이 인식된다면 성공입니다!!
+
+![]({{site.baseurl}}/images/cuda5.png)
+
+
 #### Check the status and kill
 
 ***
@@ -76,77 +223,4 @@ $ wget https://developer.download.nvidia.com/compute/cuda/11.0.3/local_installer
 ## Python - Jupyter notebook
 
 
-***
-
-
-## Python(Anaconda) - Virtual Environment (vir-env)
-
-
-#### 1. Create vir-env
-
-먼저 가상환경을 생성하는 과정은 다음과 같습니다.
-
-my_env_name : 가상환경 이름
-
-
-{% highlight js %}
-$ conda create -n my_env_name
-{% endhighlight %}
-
-
-python버전을 지정해주고 싶다면
-{% highlight js %}
-$ conda create -n my_env_name python=3.5.6
-{% endhighlight %}
-
-
-
-중간에 Proceed ([y]/n)? 라는 문구가 나오면 y를 눌러서 진행합니다.
-
-
-
-#### 2. Remove vir-env
-
-가상환경을 삭제하는 방법은 다음과 같습니다.
-
-{% highlight js %}
-$ conda remove --name my_env_name --all
-{% endhighlight %}
-
-
-앞서 python버전을 명시해 두었다면 my_env_namepython=3.5.6 까지 작성합니다.
-
-
-
-#### 3. Check vir-env infomation
-
-지금까지 만든 가상환경들이 잘 생성되었거나 기존 가상환경들을 보려면 다음의 명령어를 입력하시면 됩니다.
-
-{% highlight js %}
-$ conda info --envs
-{% endhighlight %}
-
-
-
-#### 4. Activate vir-env
-
-만든 가상환경을 들어가는 방법은 다음과 같습니다.
-
-{% highlight js %}
-$ conda activate my_env_name
-{% endhighlight %}
-
-
-
-그러면 prompt 앞에 (my_env_name)이 표시가 됩니다.
-
-
-
-#### 5. Deactivate vir-env
-
-가상환경에서 나오는 명령어는 다음과 같습니다.
-
-{% highlight js %}
-$ conda deactivate
-{% endhighlight %}
 
