@@ -15,6 +15,53 @@ This is kind a archive when I do my Machine Learning things in Linux. I do Linux
 #### To use GPU
 
 
+##### 1. CUDA Toolkit 다운로드
+
+
+먼저 cuda의 version 확인부터 해줍니다. gpu는 인식이 된다고 가정하고 그 뒤의 과정을 진행하겠습니다.
+{% highlight js %}
+nvidia-smi
+{% endhighlight %}
+
+
+결과창
+![]({{site.baseurl}}/images/cuda1.png)
+
+
+
+아래의 링크로 가서 맞는 cuda의 version 게시물을 찾아갑니다.
+https://developer.nvidia.com/cuda-toolkit-archive
+
+
+그 뒤에 window/linux 각각의 운영체제 별로 깔 수 있는 방식이 나오는데 아래와 같은 명령어로 version을 확인해준뒤 알맞게 클릭합니다.
+
+{% highlight js %}
+hostnamectl
+{% endhighlight %}
+
+결과창
+{% highlight js %}
+   Static hostname: hec11
+         Icon name: computer-server
+           Chassis: server
+        Machine ID: ace156544f0c4cf2a731adc4456435eb
+           Boot ID: 82eff4be98504e1ebcfa9a4492c92af1
+  Operating System: __CentOS Linux 7 (Core)__
+       CPE OS Name: cpe:/o:centos:centos:7
+            Kernel: Linux 3.10.0-862.el7.x86_64
+      Architecture: __x86-64__
+{% endhighlight %}
+
+
+![]({{site.baseurl}}/images/cuda2.png)
+
+
+저의 경우에는 Linux - x86_64 - CentOS - 7 - runfile(local)을 통해 나오는 명령어를 실행하여 깔았습니다.
+
+{% highlight js %}
+wget https://developer.download.nvidia.com/compute/cuda/11.0.3/local_installers/cuda_11.0.3_450.51.06_linux.run
+{% endhighlight %}
+
 #### Check the status and kill
 
 ***
@@ -33,10 +80,7 @@ This is kind a archive when I do my Machine Learning things in Linux. I do Linux
 먼저 가상환경을 생성하는 과정은 다음과 같습니다.
 
 my_env_name : 가상환경 이름
-
-{% highlight js %}
-conda create -n my_env_name python=3.5.6
-{% endhighlight %}
+Architecture
 
 
 중간에 Proceed ([y]/n)? 라는 문구가 나오면 y를 눌러서 진행합니다.
@@ -61,7 +105,7 @@ conda remove --name my_env_name --all
 지금까지 만든 가상환경들이 잘 생성되었거나 기존 가상환경들을 보려면 다음의 명령어를 입력하시면 됩니다.
 
 {% highlight js %}
-codna info --envs
+conda info --envs
 {% endhighlight %}
 
 
@@ -73,10 +117,7 @@ codna info --envs
 {% highlight js %}
 conda activate my_env_name
 {% endhighlight %}
-혹은
-{% highlight js %}
-source activate my_env_name
-{% endhighlight %}
+
 
 
 그러면 prompt 앞에 (my_env_name)이 표시가 됩니다.
@@ -90,7 +131,4 @@ source activate my_env_name
 {% highlight js %}
 conda deactivate
 {% endhighlight %}
-혹은
-{% highlight js %}
-source deactivate
-{% endhighlight %}
+
