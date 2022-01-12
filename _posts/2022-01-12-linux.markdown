@@ -24,12 +24,16 @@ nvidia-smi
 {% endhighlight %}
 
 
-결과창
+__결과창__
+
+
 ![]({{site.baseurl}}/images/cuda1.png)
 
 
 
 아래의 링크로 가서 맞는 cuda의 version 게시물을 찾아갑니다.
+
+
 https://developer.nvidia.com/cuda-toolkit-archive
 
 
@@ -39,27 +43,30 @@ https://developer.nvidia.com/cuda-toolkit-archive
 hostnamectl
 {% endhighlight %}
 
-결과창
+
+
+__결과창__
 {% highlight js %}
    Static hostname: hec11
          Icon name: computer-server
            Chassis: server
         Machine ID: ace156544f0c4cf2a731adc4456435eb
            Boot ID: 82eff4be98504e1ebcfa9a4492c92af1
-  Operating System: __CentOS Linux 7 (Core)__
+  Operating System: CentOS Linux 7 (Core)
        CPE OS Name: cpe:/o:centos:centos:7
             Kernel: Linux 3.10.0-862.el7.x86_64
-      Architecture: __x86-64__
+      Architecture: x86-64
 {% endhighlight %}
+
+
+저의 경우에는 Linux - x86_64 - CentOS - 7 - runfile(local)을 통해 나오는 명령어를 실행하여 깔았습니다.
 
 
 ![]({{site.baseurl}}/images/cuda2.png)
 
 
-저의 경우에는 Linux - x86_64 - CentOS - 7 - runfile(local)을 통해 나오는 명령어를 실행하여 깔았습니다.
-
 {% highlight js %}
-wget https://developer.download.nvidia.com/compute/cuda/11.0.3/local_installers/cuda_11.0.3_450.51.06_linux.run
+$ wget https://developer.download.nvidia.com/compute/cuda/11.0.3/local_installers/cuda_11.0.3_450.51.06_linux.run
 {% endhighlight %}
 
 #### Check the status and kill
