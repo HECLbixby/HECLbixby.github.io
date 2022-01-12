@@ -27,29 +27,42 @@ This is kind a archive when I do my Machine Learning things in Linux. I do Linux
 
 ## Python(Anaconda) - Virtual Environment (vir-env)
 
+
 #### 1. Create vir-env
+
+먼저 가상환경을 생성하는 과정은 다음과 같습니다.
+my_env_name : 가상환경 이름
 
 {% highlight js %}
 conda create -n my_env_name python=3.5.6
 {% endhighlight %}
 
-중간에 Proceed ([y]/n)? 라는 문구가 나오면 y를 눌러서 진행
+중간에 Proceed ([y]/n)? 라는 문구가 나오면 y를 눌러서 진행합니다.
+
 
 #### 2. Remove vir-env
+
+가상환경을 삭제하는 방법은 다음과 같습니다.
 
 {% highlight js %}
 conda remove --name my_env_name --all
 {% endhighlight %}
 
-앞서 python버전을 명시해 두었다면 my_env_namepython=3.5.6 까지 작성
+앞서 python버전을 명시해 두었다면 my_env_namepython=3.5.6 까지 작성합니다.
+
 
 #### 3. Check vir-env infomation
+
+지금까지 만든 가상환경들이 잘 생성되었거나 기존 가상환경들을 보려면 다음의 명령어를 입력하시면 됩니다.
 
 {% highlight js %}
 codna info --envs
 {% endhighlight %}
 
+
 #### 4. Activate vir-env
+
+만든 가상환경을 들어가는 방법은 다음과 같습니다.
 
 {% highlight js %}
 conda activate my_env_name
@@ -59,9 +72,12 @@ conda activate my_env_name
 source activate my_env_name
 {% endhighlight %}
 
-그러면 prompt 앞에 (my_env_name)이 표시된다.
+그러면 prompt 앞에 (my_env_name)이 표시가 됩니다.
+
 
 #### 5. Deactivate vir-env
+
+가상환경에서 나오는 명령어는 다음과 같습니다.
 
 {% highlight js %}
 conda deactivate
