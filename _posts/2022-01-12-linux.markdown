@@ -10,7 +10,12 @@ This is kind a archive when I do my Machine Learning things in Linux. I do Linux
 
 ***
 
-# To use GPU
+# GPU
+
+## To use GPU
+
+
+## Check the status and kill
 
 ***
 
@@ -20,63 +25,48 @@ This is kind a archive when I do my Machine Learning things in Linux. I do Linux
 ***
 
 
-# 
+# Python(Anaconda) - Virtual Environment (vir-env)
+
+### 1. Create vir-env
 
 {% highlight js %}
-import numpy as np
-from skimage import io
-import matplotlib.pyplot as plt
-import matplotlib
-import pandas as pd
-import cv2
-import sys
-import random
-from PIL import Image
-from matplotlib import cm
-import os
-import time
-import copy
-os.environ['CUDA_LAUNCH_BLOCKING'] = "1"
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"
-
-import torch, gc
-gc.collect()
-torch.cuda.empty_cache()
-import torch.nn as nn
-import torch.cuda as cutorch
-from torchvision import transforms, datasets
-from torchvision.datasets import ImageFolder
-import torch.utils.data as data
-import torchvision.transforms as T
-from IPython.display import HTML, display
-
-
-import pickle as pkl
-import keras
-from tensorflow.keras.models import Sequential, Model, load_model
-from tensorflow.keras.layers import LSTM, Dense, RepeatVector, TimeDistributed, Input, BatchNormalization, multiply, concatenate, Flatten, Activation, dot  
-from tensorflow.keras.optimizers import Adam
-from tensorflow.keras.utils import plot_model
-from tensorflow.keras.callbacks import EarlyStopping
-import pydot as pyd
-from keras.utils.vis_utils import plot_model, model_to_dot
-
-from sklearn.preprocessing import MinMaxScaler
-
-# Warning comments X
-pd.options.mode.chained_assignment = None
+conda create -n my_env_name python=3.5.6
 {% endhighlight %}
 
-***
+중간에 Proceed ([y]/n)? 라는 문구가 나오면 y를 눌러서 진행
 
-#### Images
+### 2. Remove vir-env
 
-![]({{site.baseurl}}/images/2.jpg)
+{% highlight js %}
+conda remove --name my_env_name --all
+{% endhighlight %}
 
-***
+앞서 python버전을 명시해 두었다면 my_env_namepython=3.5.6 까지 작성
 
-#### Videos
+### 3. Check vir-env infomation
 
-###### Youtube
+{% highlight js %}
+codna info --envs
+{% endhighlight %}
 
-<iframe src="https://www.youtube.com/embed/iWowJBRMtpc" frameborder="0" allowfullscreen></iframe>
+### 4. Activate vir-env
+
+{% highlight js %}
+conda activate my_env_name
+{% endhighlight %}
+혹은
+{% highlight js %}
+source activate my_env_name
+{% endhighlight %}
+
+그러면 prompt 앞에 (my_env_name)이 표시된다.
+
+### 5. Deactivate vir-env
+
+{% highlight js %}
+conda deactivate
+{% endhighlight %}
+혹은
+{% highlight js %}
+source deactivate
+{% endhighlight %}
